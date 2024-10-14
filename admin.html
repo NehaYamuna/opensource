@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Admin Management</title>
+    <style>
+        body {
+            background-color: #ffebcd; /* Light orange background */
+        }
+        .container {
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            background-color: #fff; /* White background for the container */
+        }
+        .tab {
+            margin: 20px 0;
+        }
+        .tabcontent {
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            display: none; /* Hidden by default */
+        }
+        .tabcontent.active {
+            display: block; /* Show the active tab */
+        }
+        .tablinks {
+            margin-right: 10px;
+            border-radius: 20px; /* Rounded buttons */
+            transition: transform 0.2s; /* Smooth hover effect */
+        }
+        .tablinks:hover {
+            transform: scale(1.05); /* Scale up on hover */
+        }
+        .active {
+            background-color: #6c757d; /* Darker color for active tab */
+            color: white !important;
+        }
+        .list-group-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-success {
+            background-color: #81c784; /* Light green */
+            border: none;
+            transition: background-color 0.2s;
+        }
+        .btn-success:hover {
+            background-color: #66bb6a; /* Darker green on hover */
+        }
+        .btn-warning {
+            background-color: #ffc107; /* Default Bootstrap warning color */
+            border: none;
+            transition: background-color 0.2s;
+        }
+        .btn-warning:hover {
+            background-color: #ffca28; /* Slightly lighter on hover */
+        }
+        .btn-danger {
+            transition: background-color 0.2s;
+        }
+        .btn-danger:hover {
+            background-color: #f44336; /* Darker red on hover */
+        }
+        .btn {
+            border-radius: 20px; /* Rounded buttons */
+        }
+        h3, h5 {
+            color: #333; /* Darker text for headings */
+        }
+        hr {
+            border: 1px solid #ccc;
+        }
+        .input-group {
+            margin-bottom: 15px; /* Space between input fields */
+        }
+        .list-group-item {
+            background-color: #f9f9f9; /* Light grey for list items */
+            border: 1px solid #ddd; /* Border around list items */
+            border-radius: 5px; /* Rounded corners for list items */
+            margin-bottom: 10px; /* Space between list items */
+        }
+        .existing-co-admin {
+            color: black; /* Change color of existing co-admins to black */
+        }
+        .existing-student {
+            display: flex;
+            justify-content: space-between; /* Align items neatly */
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center">Admin Management Dashboard</h1>
+
+    <div class="tab text-center">
+        <button class="tablinks btn btn-primary" onclick="openTab(event, 'Co-admins')">Co-admin Management</button>
+        <button class="tablinks btn btn-primary" onclick="openTab(event, 'Students')">Student Management</button>
+    </div>
+
+    <!-- Co-admin Management Tab -->
+    <div id="Co-admins" class="tabcontent active">
+        <h3>Manage Co-admins</h3>
+        <form id="coAdminForm">
+            <div class="input-group">
+                <input type="text" class="form-control" id="coAdminName" placeholder="Enter co-admin name" required>
+                <input type="text" class="form-control" id="coAdminUsername" placeholder="Enter username" required>
+                <div class="input-group-append">
+                    <select class="form-control" id="branchSelect" required>
+                        <option value="" disabled selected>Select a branch</option>
+                        <option value="CSE">CSE</option>
+                        <option value="CSN">CSN</option>
+                        <option value="CSD">CSD</option>
+                        <option value="IOT">IOT</option>
+                        <option value="AIML">AIML</option>
+                        <option value="ECE">ECE</option>
+                        <option value="EIE">EIE</option>
+                        <option value="ME">ME</option>
+                        <option value="CE">CE</option>
+                        <option value="AE">AE</option>
+                        <option value="IT">IT</option>
+                        <option value="EEE">EEE</option>
+                        <option value="CSBS">CSBS</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button" class="btn btn-success" onclick="addCoAdmin()">Add Co-admin</button>
+        </form>
+        <hr>
+        <h5>Existing Co-admins</h5>
+        <ul class="list-group" id="coAdminList">
+            <!-- Co-admins will be appended here -->
+        </ul>
+    </div>
+
+    <!-- Student Management Tab -->
+    <div id="Students" class="tabcontent">
+        <h3>Manage Students</h3>
+        <form id="studentForm">
+            <div class="input-group">
+                <input type="text" class="form-control" id="studentName" placeholder="Enter student name" required>
+                <input type="text" class="form-control" id="studentUsername" placeholder="Enter username" required>
+                <input type="text" class="form-control" id="rollNumber" placeholder="Enter roll number" required>
+                <div class="input-group-append">
+                    <select class="form-control" id="studentBranchSelect" required>
+                        <option value="" disabled selected>Select a branch</option>
+                        <option value="CSE">CSE</option>
+                        <option value="CSN">CSN</option>
+                        <option value="CSD">CSD</option>
+                        <option value="IOT">IOT</option>
+                        <option value="AIML">AIML</option>
+                        <option value="ECE">ECE</option>
+                        <option value="EIE">EIE</option>
+                        <option value="ME">ME</option>
+                        <option value="CE">CE</option>
+                        <option value="AE">AE</option>
+                        <option value="IT">IT</option>
+                        <option value="EEE">EEE</option>
+                        <option value="CSBS">CSBS</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button" class="btn btn-success" onclick="addStudent()">Add Student</button>
+        </form>
+        <hr>
+        <h5>Existing Students</h5>
+        <ul class="list-group" id="studentList">
+            <!-- Students will be appended here -->
+        </ul>
+    </div>
+</div>
+
+<script>
+let coAdminList = [];
+let studentList = [];
+
+// Function to open the tabs
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Function to add a new co-admin
+function addCoAdmin() {
+    const name = document.getElementById('coAdminName').value;
+    const username = document.getElementById('coAdminUsername').value;
+    const branch = document.getElementById('branchSelect').value;
+
+    if (name && username && branch) {
+        const coAdmin = { name, username, branch };
+        coAdminList.push(coAdmin);
+        document.getElementById('coAdminForm').reset();
+        renderCoAdminList();
+    }
+}
+
+// Function to render the existing co-admins
+function renderCoAdminList() {
+    const listElement = document.getElementById('coAdminList');
+    listElement.innerHTML = '';
+
+    coAdminList.forEach((coAdmin, index) => {
+        const listItem = document.createElement('li');
+        listItem.className = 'list-group-item existing-co-admin';
+        listItem.innerHTML = `
+            ${coAdmin.name} (Username: ${coAdmin.username}, Branch: ${coAdmin.branch})
+            <div>
+                <select class="btn btn-warning" onchange="editCoAdmin(${index}, this.value)">
+                    <option value="" disabled selected>Edit</option>
+                    <option value="name">Edit Name</option>
+                    <option value="username">Edit Username</option>
+                    <option value="branch">Edit Branch</option>
+                </select>
+                <button class="btn btn-danger" onclick="deleteCoAdmin(${index})">Delete</button>
+            </div>
+        `;
+        listElement.appendChild(listItem);
+    });
+}
+
+// Function to edit a co-admin
+function editCoAdmin(index, field) {
+    const coAdmin = coAdminList[index];
+    let newValue;
+    
+    if (field === "name") {
+        newValue = prompt("Edit Co-admin Name:", coAdmin.name);
+        if (newValue) coAdminList[index].name = newValue;
+    } else if (field === "username") {
+        newValue = prompt("Edit Username:", coAdmin.username);
+        if (newValue) coAdminList[index].username = newValue;
+    } else if (field === "branch") {
+        newValue = prompt("Edit Branch:", coAdmin.branch);
+        if (newValue) coAdminList[index].branch = newValue;
+    }
+    
+    renderCoAdminList();
+}
+
+// Function to delete a co-admin
+function deleteCoAdmin(index) {
+    coAdminList.splice(index, 1);
+    renderCoAdminList();
+}
+
+// Function to add a new student
+function addStudent() {
+    const name = document.getElementById('studentName').value;
+    const username = document.getElementById('studentUsername').value;
+    const rollNumber = document.getElementById('rollNumber').value;
+    const branch = document.getElementById('studentBranchSelect').value;
+
+    if (name && username && rollNumber && branch) {
+        const student = { name, username, rollNumber, branch };
+        studentList.push(student);
+        document.getElementById('studentForm').reset();
+        renderStudentList();
+    }
+}
+
+// Function to render the existing students
+function renderStudentList() {
+    const listElement = document.getElementById('studentList');
+    listElement.innerHTML = '';
+
+    studentList.forEach((student, index) => {
+        const listItem = document.createElement('li');
+        listItem.className = 'list-group-item existing-student';
+        listItem.innerHTML = `
+            ${student.name} (Roll No: ${student.rollNumber}, Username: ${student.username}, Branch: ${student.branch})
+            <div>
+                <select class="btn btn-warning" onchange="editStudent(${index}, this.value)">
+                    <option value="" disabled selected>Edit</option>
+                    <option value="name">Edit Name</option>
+                    <option value="username">Edit Username</option>
+                    <option value="rollNumber">Edit Roll Number</option>
+                    <option value="branch">Edit Branch</option>
+                </select>
+                <button class="btn btn-danger" onclick="deleteStudent(${index})">Delete</button>
+            </div>
+        `;
+        listElement.appendChild(listItem);
+    });
+}
+
+// Function to edit a student
+function editStudent(index, field) {
+    const student = studentList[index];
+    let newValue;
+    
+    if (field === "name") {
+        newValue = prompt("Edit Student Name:", student.name);
+        if (newValue) studentList[index].name = newValue;
+    } else if (field === "username") {
+        newValue = prompt("Edit Username:", student.username);
+        if (newValue) studentList[index].username = newValue;
+    } else if (field === "rollNumber") {
+        newValue = prompt("Edit Roll Number:", student.rollNumber);
+        if (newValue) studentList[index].rollNumber = newValue;
+    } else if (field === "branch") {
+        newValue = prompt("Edit Branch:", student.branch);
+        if (newValue) studentList[index].branch = newValue;
+    }
+    
+    renderStudentList();
+}
+
+// Function to delete a student
+function deleteStudent(index) {
+    studentList.splice(index, 1);
+    renderStudentList();
+}
+</script>
+</body>
+</html>

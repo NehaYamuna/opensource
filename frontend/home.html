@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BookNest - Main Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> <!-- Lemon Font -->
+
   <style>
     /* Basic Reset and Styling */
     * {
@@ -15,41 +17,34 @@
     body, html {
       height: 100%;
       font-family: Arial, sans-serif;
+      background: #f7f7f7;
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: #f7f7f7;
     }
 
-    /* Top Navigation Bar */
-    .top-nav {
-      width: 100%;
-      height: 60px;
+    /* Circle Menu Icon */
+    .menu-circle {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
       background-color: #ffefd5;
+      border-radius: 50%;
       display: flex;
+      justify-content: center;
       align-items: center;
-      padding: 0 20px;
-      justify-content: space-between;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .hamburger {
-      font-size: 24px;
       cursor: pointer;
-    }
-
-    .app-title {
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
       font-size: 24px;
       color: #333;
-      text-align: center;
-      flex: 1;
-      font-weight: bold;
     }
 
     /* Dropdown Menu */
     .dropdown-menu {
       position: absolute;
-      top: 60px;
+      top: 80px;
       left: 20px;
       background-color: #fff;
       border: 1px solid #ddd;
@@ -71,30 +66,58 @@
       background-color: #f0e68c;
     }
 
-    /* Main Content Section */
+    /* App Name with Lemon Font and Highlighting */
+    .app-title {
+      font-family: 'Lobster', cursive;
+      font-size: 48px;
+      font-weight: bold;
+      color: #ff6347;
+      margin-top: 50px;
+      text-align: center;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); /* Added highlight effect */
+    }
+
+    /* Main Content */
     .main-content {
       flex: 1;
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
+      padding-top: 50px;
     }
 
-    .selling-section {
-      background-color: #ffe4e1;
-      width: 100%;
-      padding: 15px;
-      text-align: center;
-      border-radius: 10px;
-      margin-top: 20px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
+    /* Most Selling Books with Pop-Up Effect */
     .selling-section h2 {
       font-size: 24px;
       color: #333;
       margin-bottom: 15px;
+    }
+
+    .book-list {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 15px;
+      animation: popIn 1s ease-in-out;
+      margin-top: 30px; /* Move the books down */
+    }
+
+    .book-item {
+      width: 150px; /* Fixed width for uniform book size */
+      transition: transform 0.3s ease;
+    }
+
+    .book-item img {
+      width: 100%;
+      height: 200px; /* Fixed height for uniform book size */
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .book-item:hover {
+      transform: scale(1.1);
     }
 
     /* Bottom Navigation Bar */
@@ -120,50 +143,17 @@
       color: #b02f2f;
     }
 
-    /* Pop-up Effect */
-    .popup {
-      display: none;
-      position: fixed;
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #ffe4e1;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-      width: 80%;
-      max-width: 300px;
-      text-align: center;
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
     }
 
-    .popup h3 {
-      color: #333;
-      margin-bottom: 15px;
-    }
-
-    .popup p {
-      color: #555;
-    }
-
-    .close-popup {
-      background-color: #ffefd5;
-      border: none;
-      padding: 8px;
-      cursor: pointer;
-      margin-top: 15px;
-      border-radius: 8px;
-      color: #333;
-      font-size: 16px;
-    }
   </style>
 </head>
 <body>
 
-  <!-- Top Navigation Bar -->
-  <div class="top-nav">
-    <span class="hamburger" onclick="toggleDropdown()">☰</span>
-    <div class="app-title">BookNest</div>
-  </div>
+  <!-- Circle Menu Icon -->
+  <div class="menu-circle" onclick="toggleDropdown()">☰</div>
 
   <!-- Dropdown Menu -->
   <div id="dropdownMenu" class="dropdown-menu">
@@ -172,12 +162,28 @@
     <a href="#">Trade</a>
   </div>
 
+  <!-- App Title with Lemon Font and Highlighting -->
+  <div class="app-title">BookNest</div>
+
   <!-- Main Content Section -->
   <div class="main-content">
-    <div class="selling-section">
-      <h2>Most Selling Books</h2>
-      <p>Explore top-selling books here!</p>
-      <!-- Additional content for bestsellers can be dynamically loaded here -->
+    <h2>Most Selling Books</h2>
+    <div class="book-list">
+      <div class="book-item">
+        <a href="https://www.amazon.in/Basic-Electrical-Instrumentation-Engineering-Sharmeela/dp/1119764467">
+          <img src="https://m.media-amazon.com/images/I/61vOZaceY9L._AC_UF1000,1000_QL80_.jpg" alt="Book 1">
+        </a>
+      </div>
+      <div class="book-item">
+        <a href="https://arspublications.com/product/basic-electrical-and-instrumentation-engineering/">
+          <img src="https://arspublications.com/wp-content/uploads/2019/11/Electrical-and-Instrumentation-E.jpg" alt="Book 2">
+        </a>
+      </div>
+      <div class="book-item">
+        <a href="https://srikrishnabookbazaar.com/product/electrical-and-instrumentation-engineering/">
+          <img src="https://srikrishnabookbazaar.com/wp-content/uploads/2024/01/Untitled-2.jpg" alt="Book 3">
+        </a>
+      </div>
     </div>
   </div>
 
@@ -188,13 +194,6 @@
     <span class="icon" onclick="showPopup('Cart')">🛒</span>
   </div>
 
-  <!-- Pop-up Modal -->
-  <div id="popup" class="popup">
-    <h3 id="popupTitle">Title</h3>
-    <p>Feature coming soon...</p>
-    <button class="close-popup" onclick="closePopup()">Close</button>
-  </div>
-
   <script>
     // JavaScript for Dropdown Toggle
     function toggleDropdown() {
@@ -202,25 +201,18 @@
       dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
     }
 
-    // JavaScript for Pop-up Modal
-    function showPopup(title) {
-      document.getElementById("popupTitle").innerText = title;
-      document.getElementById("popup").style.display = "block";
-    }
-
-    function closePopup() {
-      document.getElementById("popup").style.display = "none";
-    }
-
     // Close dropdown menu when clicking outside
     window.onclick = function(event) {
-      if (!event.target.matches('.hamburger')) {
+      if (!event.target.closest('.menu-circle')) {
         const dropdown = document.getElementById("dropdownMenu");
-        if (dropdown.style.display === "block") {
-          dropdown.style.display = "none";
-        }
+        dropdown.style.display = "none";
       }
     };
+
+    // Placeholder function for popups (if needed)
+    function showPopup(type) {
+      alert(type + " popup triggered!");
+    }
   </script>
 </body>
 </html>

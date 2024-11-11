@@ -131,6 +131,22 @@
       document.getElementById("signUpForm").classList.toggle("hidden");
       document.getElementById("loginForm").classList.add("hidden");
     });
+
+    // Handle form submission for Login
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();  // Prevent default form submission
+      // Perform AJAX call or validation here (optional)
+      // On success, redirect to home.html
+      window.location.href = "home.html";
+    });
+
+    // Handle form submission for Sign-up
+    document.getElementById("signUpForm").addEventListener("submit", function(event) {
+      event.preventDefault();  // Prevent default form submission
+      // Perform AJAX call or validation here (optional)
+      // On success, redirect to home.html
+      window.location.href = "home.html";
+    });
   </script>
 </body>
 </html>

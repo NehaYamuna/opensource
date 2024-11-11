@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookNest - Main Page</title>
+  <style>
+    /* Basic Reset and Styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #f7f7f7;
+    }
+
+    /* Top Navigation Bar */
+    .top-nav {
+      width: 100%;
+      height: 60px;
+      background-color: #ffefd5;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      justify-content: space-between;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .hamburger {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .app-title {
+      font-size: 24px;
+      color: #333;
+      text-align: center;
+      flex: 1;
+      font-weight: bold;
+    }
+
+    /* Dropdown Menu */
+    .dropdown-menu {
+      position: absolute;
+      top: 60px;
+      left: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 120px;
+      display: none;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px;
+      color: #333;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f0e68c;
+    }
+
+    /* Main Content Section */
+    .main-content {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .selling-section {
+      background-color: #ffe4e1;
+      width: 100%;
+      padding: 15px;
+      text-align: center;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .selling-section h2 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    /* Bottom Navigation Bar */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 60px;
+      background-color: #ffefd5;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .bottom-nav .icon {
+      font-size: 24px;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .bottom-nav .icon:hover {
+      color: #b02f2f;
+    }
+
+    /* Pop-up Effect */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #ffe4e1;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+      width: 80%;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    .popup h3 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .popup p {
+      color: #555;
+    }
+
+    .close-popup {
+      background-color: #ffefd5;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      margin-top: 15px;
+      border-radius: 8px;
+      color: #333;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <div class="top-nav">
+    <span class="hamburger" onclick="toggleDropdown()">☰</span>
+    <div class="app-title">BookNest</div>
+  </div>
+
+  <!-- Dropdown Menu -->
+  <div id="dropdownMenu" class="dropdown-menu">
+    <a href="#">Buy</a>
+    <a href="#">Sell</a>
+    <a href="#">Trade</a>
+  </div>
+
+  <!-- Main Content Section -->
+  <div class="main-content">
+    <div class="selling-section">
+      <h2>Most Selling Books</h2>
+      <p>Explore top-selling books here!</p>
+      <!-- Additional content for bestsellers can be dynamically loaded here -->
+    </div>
+  </div>
+
+  <!-- Bottom Navigation Bar -->
+  <div class="bottom-nav">
+    <span class="icon" onclick="showPopup('Profile')">👤</span>
+    <span class="icon" onclick="showPopup('Scan')">➕</span>
+    <span class="icon" onclick="showPopup('Cart')">🛒</span>
+  </div>
+
+  <!-- Pop-up Modal -->
+  <div id="popup" class="popup">
+    <h3 id="popupTitle">Title</h3>
+    <p>Feature coming soon...</p>
+    <button class="close-popup" onclick="closePopup()">Close</button>
+  </div>
+
+  <script>
+    // JavaScript for Dropdown Toggle
+    function toggleDropdown() {
+      const dropdown = document.getElementById("dropdownMenu");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    // JavaScript for Pop-up Modal
+    function showPopup(title) {
+      document.getElementById("popupTitle").innerText = title;
+      document.getElementById("popup").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    // Close dropdown menu when clicking outside
+    window.onclick = function(event) {
+      if (!event.target.matches('.hamburger')) {
+        const dropdown = document.getElementById("dropdownMenu");
+        if (dropdown.style.display === "block") {
+          dropdown.style.display = "none";
+        }
+      }
+    };
+  </script>
+</body>
+</html>

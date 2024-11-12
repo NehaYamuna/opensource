@@ -3,79 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Listings - Book Trading App</title>
-  <link rel="stylesheet" href="bstyle.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>List Your Book - BookNest</title>
+  <link rel="stylesheet" href="bstyle.css"> <!-- Link to bstyle.css -->
+  <!-- Include FontAwesome for home icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-  <!-- Top Header with App Name -->
-  <header>
-    <div class="app-name">
+  <div class="list-book-container">
+    <!-- Top Bar with Title -->
+    <header class="top-bar">
       <h1>BookNest</h1>
-    </div>
-    <!-- Navigation Links -->
-    <div class="nav-box">
-      <a href="index.html" class="nav-button"><i class="fas fa-home"></i> Home</a>
-      <a href="login.html" class="nav-button"><i class="fas fa-sign-in-alt"></i> Login</a>
-      <a href="signup.html" class="nav-button"><i class="fas fa-user-plus"></i> Signup</a>
-      <a href="list_book.html" class="nav-button"><i class="fas fa-plus-circle"></i> List Your Book</a>
-    </div>
-  </header>
+    </header>
 
-  <!-- Book Listings Section -->
-  <main>
-    <section class="book-listing">
-      <h2>Browse Books</h2>
-      <p>Explore a variety of books available for trading.</p>
+    <!-- Home Button below the Top Bar (Left Corner) -->
+    <a href="homepage.html" class="home-btn">
+      <i class="fas fa-home"></i>
+    </a>
 
-      <!-- Search Bar for Filtering Books -->
-      <div class="search-bar">
-        <input type="text" name="search" placeholder="Search by title, author, or genre">
-        <button type="submit"><i class="fas fa-search"></i> Search</button>
-      </div>
+    <main>
+      <h2>List Your Book for Sale</h2>
+      
+      <form action="submit_book.html" method="POST" class="book-form">
+        <label for="book-title">Book Title</label>
+        <input type="text" id="book-title" name="book-title" placeholder="Enter the title of your book" required>
 
-      <!-- Book Cards -->
-      <div class="book-cards">
-        <!-- Book 1 -->
-        <div class="book-card">
-          <img src="book1.jpg" alt="Book 1">
-          <h3>Book Title 1</h3>
-          <p><strong>Author:</strong> Author 1</p>
-          <p><strong>Price:</strong> $15</p>
-          <button class="contact-btn"><i class="fas fa-envelope"></i> Contact Seller</button>
-        </div>
-        <!-- Book 2 -->
-        <div class="book-card">
-          <img src="book2.jpg" alt="Book 2">
-          <h3>Book Title 2</h3>
-          <p><strong>Author:</strong> Author 2</p>
-          <p><strong>Price:</strong> $20</p>
-          <button class="contact-btn"><i class="fas fa-envelope"></i> Contact Seller</button>
-        </div>
-        <!-- Book 3 -->
-        <div class="book-card">
-          <img src="book3.jpg" alt="Book 3">
-          <h3>Book Title 3</h3>
-          <p><strong>Author:</strong> Author 3</p>
-          <p><strong>Price:</strong> $12</p>
-          <button class="contact-btn"><i class="fas fa-envelope"></i> Contact Seller</button>
-        </div>
-        <!-- Book 4 -->
-        <div class="book-card">
-          <img src="book4.jpg" alt="Book 4">
-          <h3>Book Title 4</h3>
-          <p><strong>Author:</strong> Author 4</p>
-          <p><strong>Price:</strong> $18</p>
-          <button class="contact-btn"><i class="fas fa-envelope"></i> Contact Seller</button>
-        </div>
-      </div>
-    </section>
-  </main>
+        <label for="author">Author</label>
+        <input type="text" id="author" name="author" placeholder="Enter the author of the book" required>
 
-  <!-- Footer Section -->
-  <footer>
-    <p>&copy; 2023 BookNest. All rights reserved.</p>
-  </footer>
+        <label for="price">Price</label>
+        <input type="number" id="price" name="price" placeholder="Enter the price" required>
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="4" placeholder="Enter a brief description of the book" required></textarea>
+
+        <label for="book-image">Upload Book Image</label>
+        <input type="file" id="book-image" name="book-image" accept="image/*" required>
+
+        <div class="buttons">
+          <button type="submit" class="submit-btn">List My Book</button>
+          <button type="reset" class="reset-btn">Clear Form</button>
+        </div>
+      </form>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 BookNest. All rights reserved.</p>
+    </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>

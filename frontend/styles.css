@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: #4a2e2e;
+  background-color: #f5f1e1;
+}
+
+/* App Name Centered at the Top */
+.app-name {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.app-name h1 {
+  font-size: 2.5rem;
+  color: #4a2e2e;
+}
+
+/* Navigation Box for Login, Signup, and List Book Buttons */
+.nav-box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  background-color: #d9c3a3;
+  border-radius: 8px;
+}
+
+.nav-button {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #4a2e2e;
+  text-decoration: none;
+  padding: 12px 20px;
+  background-color: #f7e8d6;
+  border: none;
+  border-radius: 5px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-button:hover {
+  background-color: #e3ccb6;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  text-align: center;
+}
+
+.hero-content h2 {
+  font-size: 2rem;
+  color: #4a2e2e;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1rem;
+  margin-bottom: 25px;
+  color: #4a2e2e;
+}
+
+/* Search Form */
+.search-form {
+  display: flex;
+  justify-content: center;
+}
+
+.search-form input[type="text"] {
+  width: 50%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #d9c3a3;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.search-form button {
+  padding: 12px 20px;
+  background-color: #b48b67;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background-color: #9f7758;
+}
+
+/* Featured Books Section */
+.featured-books {
+  padding: 30px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.featured-books h3 {
+  font-size: 1.5rem;
+  color: #4a2e2e;
+  margin-bottom: 20px;
+}
+
+.book-list {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.book-item {
+  width: 280px;
+  background-color: #f5f1e1;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.book-item:hover {
+  transform: translateY(-5px);
+}
+
+.book-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.book-item h4 {
+  font-size: 1.2rem;
+  color: #4a2e2e;
+  margin-top: 10px;
+}
+
+.book-item p {
+  color: #4a2e2e;
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+.book-item button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #b48b67;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.book-item button:hover {
+  background-color: #9f7758;
+}
+
+footer {
+  background-color: #4a2e2e;
+  padding: 15px;
+  text-align: center;
+  color: #fff;
+  font-size: 0.9rem;
+}

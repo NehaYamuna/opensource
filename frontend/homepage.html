@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookNest - Your Book Trading Platform</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Top Header with App Name -->
+  <header>
+    <div class="app-name">
+      <h1>BookNest</h1>
+    </div>
+    <!-- Vertical Navigation Box with Buttons -->
+    <div class="nav-box">
+      <!-- Profile Button (Redirects to userppage.html) -->
+      <a href="userpage.html" class="nav-button"><i class="fas fa-user"></i> Profile</a>
+
+      <!-- Cart Button (Redirects to cart.html) -->
+      <a href="cart.html" class="nav-button"><i class="fas fa-shopping-cart"></i> Cart</a>
+
+      <!-- List Your Book Button -->
+      <a href="list_book.html" class="nav-button"><i class="fas fa-plus-circle"></i> List Your Book</a>
+    </div>
+  </header>
+
+  <!-- Central Hero Section -->
+  <main>
+    <section class="hero-section">
+      <div class="hero-content">
+        <h2>Discover, Trade & Enjoy Your Next Favorite Book</h2>
+        <p>Join BookNest, where book lovers find their next reads and make great connections.</p>
+        <form action="search.html" class="search-form">
+          <input type="text" name="search" placeholder="Search books by title, author, or genre">
+          <button type="submit"><i class="fas fa-search"></i> Search</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Featured Books Section -->
+    <section class="featured-books">
+      <h3>Featured Books</h3>
+      <div class="book-list">
+        <div class="book-item">
+          <img src="book1.jpg" alt="Book 1">
+          <h4>Book Title 1</h4>
+          <p><strong>Author:</strong> Author 1</p>
+          <p><strong>Price:</strong> $15</p>
+          <button><i class="fas fa-envelope"></i> Contact Seller</button>
+        </div>
+        <div class="book-item">
+          <img src="book2.jpg" alt="Book 2">
+          <h4>Book Title 2</h4>
+          <p><strong>Author:</strong> Author 2</p>
+          <p><strong>Price:</strong> $20</p>
+          <button><i class="fas fa-envelope"></i> Contact Seller</button>
+        </div>
+        <div class="book-item">
+          <img src="book3.jpg" alt="Book 3">
+          <h4>Book Title 3</h4>
+          <p><strong>Author:</strong> Author 3</p>
+          <p><strong>Price:</strong> $12</p>
+          <button><i class="fas fa-envelope"></i> Contact Seller</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2023 BookNest. All rights reserved.</p>
+  </footer>
+</body>
+</html>

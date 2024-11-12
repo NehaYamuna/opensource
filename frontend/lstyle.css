@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: #f9f3e7; /* Light beige background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    background: #fff8e1; /* Soft beige background */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .form-container h1 {
+    font-size: 2.5rem;
+    color: #4e3629; /* Deep brown */
+    margin-bottom: 20px;
+  }
+  
+  .form-container p {
+    color: #7f5e3d; /* Medium brown */
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  .form-container h2 {
+    color: #4e3629; /* Deep brown */
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-top: 12px;
+    color: #6b4f3f; /* Dark beige-brown */
+    font-size: 1rem;
+  }
+  
+  input, select {
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #d0a17e; /* Warm light brown */
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #fff; /* White background for inputs */
+    color: #4e3629; /* Deep brown text color */
+  }
+  
+  input:focus, select:focus {
+    border-color: #6b4f3f; /* Focused input with darker brown border */
+    outline: none;
+  }
+  
+  button {
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #8c5e3c; /* Brownish button */
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #6b4f3f; /* Darker brown on hover */
+  }
+  
+  a {
+    color: #8c5e3c; /* Brown link color */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+    color: #6b4f3f; /* Darker brown on hover */
+  }
+  
+  p {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #6b4f3f;
+  }
+  
